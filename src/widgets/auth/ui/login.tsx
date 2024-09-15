@@ -10,10 +10,7 @@ import {
 import { Input } from "@/shared/ui/input"
 import { Label } from "@/shared/ui/label"
 
-export const description =
-  "A simple login form with email and password. The submit button says 'Sign in'."
-
-export function LoginForm() {
+export const LoginForm = () => {
   return (
     <Card className="w-full max-w-sm">
       <CardHeader>

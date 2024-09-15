@@ -1,7 +1,7 @@
+import { RegistrationForm } from "@/widgets/auth";
+
 export const SignupPage = () => {
-    return (
-        <div>
-            signup page
-        </div>
-    )
+  return (
+    <RegistrationForm />
+  )
 }
