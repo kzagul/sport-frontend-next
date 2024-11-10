@@ -15,21 +15,21 @@ export const RegistrationForm = () => {
   return (
     <Card className="mx-auto max-w-sm">
       <CardHeader>
-        <CardTitle className="text-xl">Sign Up</CardTitle>
+        <CardTitle className="text-xl">Регистрация</CardTitle>
         <CardDescription>
-          Enter your information to create an account
+          Введите свои данные для создания учетной записи
         </CardDescription>
       </CardHeader>
       <CardContent>
         <div className="grid gap-4">
           <div className="grid grid-cols-2 gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="first-name">First name</Label>
-              <Input id="first-name" placeholder="Max" required />
+              <Label htmlFor="first-name">Имя</Label>
+              <Input id="first-name" placeholder="Иван" required />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="last-name">Last name</Label>
-              <Input id="last-name" placeholder="Robinson" required />
+              <Label htmlFor="last-name">Фамилия</Label>
+              <Input id="last-name" placeholder="Иванов" required />
             </div>
           </div>
           <div className="grid gap-2">
@@ -37,25 +37,25 @@ export const RegistrationForm = () => {
             <Input
               id="email"
               type="email"
-              placeholder="m@example.com"
+              placeholder="email@example.ru"
               required
             />
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password">Пароль</Label>
             <Input id="password" type="password" />
           </div>
           <Button type="submit" className="w-full">
-            Create an account
+            Создать учетную запись
           </Button>
-          <Button variant="outline" className="w-full">
-            Sign up with GitHub
-          </Button>
+          {/* <Button variant="outline" className="w-full">
+            Войти через Госуслуги
+          </Button> */}
         </div>
         <div className="mt-4 text-center text-sm">
-          Already have an account?{" "}
+          У меня уже есть учетная запись?{" "}
           <Link href="#" className="underline">
-            Sign in
+            Войти
           </Link>
         </div>
       </CardContent>

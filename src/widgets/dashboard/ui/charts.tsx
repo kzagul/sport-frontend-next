@@ -42,11 +42,11 @@ export const Charts = () => {
           className="lg:max-w-md" x-chunk="charts-01-chunk-0"
         >
           <CardHeader className="space-y-0 pb-2">
-            <CardDescription>Today</CardDescription>
+            <CardDescription>Сегодня</CardDescription>
             <CardTitle className="text-4xl tabular-nums">
               12,584{" "}
               <span className="font-sans text-sm font-normal tracking-normal text-muted-foreground">
-                steps
+                шагов
               </span>
             </CardTitle>
           </CardHeader>
@@ -138,7 +138,7 @@ export const Charts = () => {
                 >
                   <Label
                     position="insideBottomLeft"
-                    value="Average Steps"
+                    value="Среднее количество шагов"
                     offset={10}
                     fill="hsl(var(--foreground))"
                   />
@@ -156,13 +156,13 @@ export const Charts = () => {
           </CardContent>
           <CardFooter className="flex-col items-start gap-1">
             <CardDescription>
-              Over the past 7 days, you have walked{" "}
-              <span className="font-medium text-foreground">53,305</span> steps.
+              За последние 7 дней вы прошли{" "}
+              <span className="font-medium text-foreground">53,305</span> шагов.
             </CardDescription>
             <CardDescription>
-              You need{" "}
-              <span className="font-medium text-foreground">12,584</span> more
-              steps to reach your goal.
+              Тебе нужно еще{" "}
+              <span className="font-medium text-foreground"> 12,584 </span>
+              шагов для достижения своей цели.
             </CardDescription>
           </CardFooter>
         </Card>
