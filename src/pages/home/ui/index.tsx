@@ -2,7 +2,7 @@ import { QueryClient, dehydrate } from '@tanstack/react-query'
 import { fetchPosts } from '../model';
 
 import { Header } from '@/widgets/header'
-import { Footer } from '@/widgets/footer'
+// import { Footer } from '@/widgets/footer'
 
 import { Badge } from '@/shared/ui/badge';
 
@@ -16,7 +16,10 @@ import {
   NewsletterBlock,
   LandingHeaderBlock,
   RoadmapBlock,
-  UserInterfaceBlock
+  UserInterfaceBlock,
+  FooterBlock,
+  RecommendationsBlock,
+  ScrollToTopBlock
 } from '@/widgets/landing'
 import Marquee from 'react-fast-marquee';
 
@@ -68,9 +71,11 @@ export const HomePage = () => {
 
         <div className='flex mx-auto flex-col gap-4 max-w-[1400px]'>
           <AboutBlock />
+          
+          <RecommendationsBlock />
+
           <UserInterfaceBlock />
           {/* <ContactsBlock /> */}
-
 
           <CTABlock />
 
@@ -78,9 +83,10 @@ export const HomePage = () => {
 
           <FAQBlock />
           <NewsletterBlock />
+          <ScrollToTopBlock />
         </div>
       </main>
-      <Footer />
+      <FooterBlock />
     </div>
   );
 }

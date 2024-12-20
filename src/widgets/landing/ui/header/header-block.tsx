@@ -36,6 +36,10 @@ const routeList: RouteProps[] = [
     label: "О проекте",
   },
   {
+    href: "#recommendations",
+    label: "Рекомендации",
+  },
+  {
     href: "#ui",
     label: "Внешний вид",
   },
@@ -45,7 +49,7 @@ const routeList: RouteProps[] = [
   },
   {
     href: "#faq",
-    label: "FAQ",
+    label: "Вопрос-ответ",
   },
 ];
 
@@ -79,9 +83,14 @@ export const LandingHeaderBlock = () => {
               className="ml-2 font-bold text-xl flex"
             >
               {/* <LogoIcon /> */}
-              <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text text-center">
+              {/* <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text text-center">
                 СПОРТ/услуги
-              </span>
+              </span> */}
+              <img
+                className="w-full rounded-lg h-10"
+                src="logo/logo-full.png"
+                alt="office content 1"
+              />
             </a>
           </NavigationMenuItem>
 
