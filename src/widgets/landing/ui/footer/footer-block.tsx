@@ -1,21 +1,17 @@
 export const FooterBlock = () => {
   return (
     <footer id="footer">
-      <hr className="w-11/12 mx-auto" />
+      <hr className="mx-auto w-11/12" />
 
-      <section className="container flex justify-between py-20 gap-x-12 gap-y-8">
+      <section className="container flex justify-between gap-x-12 gap-y-8 py-20">
         <div className="col-span-full xl:col-span-2">
-          <a
-              rel="noreferrer noopener"
-              href="/"
-              className="ml-2 font-bold text-xl flex"
-            >
-              <img
-                className="w-full rounded-lg h-10"
-                src="logo/logo-full.png"
-                alt="office content 1"
-              />
-            </a>
+          <a rel="noreferrer noopener" href="/" className="ml-2 flex text-xl font-bold">
+            <img
+              className="h-10 w-full rounded-lg"
+              src="logo/logo-full.png"
+              alt="office content 1"
+            />
+          </a>
         </div>
 
         {/* <div className="flex flex-col gap-2">
@@ -150,11 +146,11 @@ export const FooterBlock = () => {
           </div>
         </div> */}
 
-          <h3>
-          &copy; 2024 - все права защищены.{" "}
+        <h3>
+          &copy; 2024 - все права защищены.{' '}
           <a
             href="mailto:sportuslugi.tech@ya.ru"
-            className="text-primary transition-all border-primary hover:border-b-2"
+            className="border-primary text-primary transition-all hover:border-b-2"
           >
             sportuslugi.tech@ya.ru
           </a>
@@ -175,5 +171,5 @@ export const FooterBlock = () => {
         </h3>
       </section> */}
     </footer>
-  );
-};
+  )
+}

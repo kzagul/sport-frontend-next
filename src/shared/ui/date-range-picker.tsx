@@ -1,24 +1,18 @@
-'use client';
-import { Button } from '@/shared/ui/button';
-import { Calendar } from '@/shared/ui/calendar';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger
-} from '@/shared/ui/popover';
-import { cn } from '@/shared/utils';
-import { CalendarIcon } from '@radix-ui/react-icons';
-import { addDays, format } from 'date-fns';
-import * as React from 'react';
-import { DateRange } from 'react-day-picker';
+'use client'
+import { Button } from '@/shared/ui/button'
+import { Calendar } from '@/shared/ui/calendar'
+import { Popover, PopoverContent, PopoverTrigger } from '@/shared/ui/popover'
+import { cn } from '@/shared/utils'
+import { CalendarIcon } from '@radix-ui/react-icons'
+import { addDays, format } from 'date-fns'
+import * as React from 'react'
+import { DateRange } from 'react-day-picker'
 
-export function CalendarDateRangePicker({
-  className
-}: React.HTMLAttributes<HTMLDivElement>) {
+export function CalendarDateRangePicker({ className }: React.HTMLAttributes<HTMLDivElement>) {
   const [date, setDate] = React.useState<DateRange | undefined>({
     from: new Date(2023, 0, 20),
-    to: addDays(new Date(2023, 0, 20), 20)
-  });
+    to: addDays(new Date(2023, 0, 20), 20),
+  })
 
   return (
     <div className={cn('grid gap-2', className)}>
@@ -36,8 +30,7 @@ export function CalendarDateRangePicker({
             {date?.from ? (
               date.to ? (
                 <>
-                  {format(date.from, 'LLL dd, y')} -{' '}
-                  {format(date.to, 'LLL dd, y')}
+                  {format(date.from, 'LLL dd, y')} - {format(date.to, 'LLL dd, y')}
                 </>
               ) : (
                 format(date.from, 'LLL dd, y')
@@ -59,5 +52,5 @@ export function CalendarDateRangePicker({
         </PopoverContent>
       </Popover>
     </div>
-  );
+  )
 }

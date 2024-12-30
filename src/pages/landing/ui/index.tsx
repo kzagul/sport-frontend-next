@@ -4,7 +4,8 @@ import { fetchPosts } from '../model';
 import { Header } from '@/widgets/header'
 // import { Footer } from '@/widgets/footer'
 
-import { Badge } from '@/shared/ui/badge';
+import { cn } from "@/shared/utils";
+import {AnimatedGridPattern} from "@/shared/ui/animated-grid"
 
 import { 
   BeginBlock,
@@ -30,7 +31,6 @@ export const LandingPage = () => {
       <LandingHeaderBlock />
       <main className="flex mx-auto flex-col gap-4 row-start-2 items-center sm:items-start">
         <BeginBlock />
-
                 
         <div className='flex mx-auto flex-col gap-4 max-w-[1400px]'>
           <HowItWorksBlock />
@@ -58,9 +58,9 @@ export const LandingPage = () => {
 
         <div className='flex mx-auto flex-col gap-4 max-w-[1400px]'>
           
-          <RecommendationsBlock />
+                <RecommendationsBlock />
 
-          <UserInterfaceBlock />
+            <UserInterfaceBlock />
           {/* <ContactsBlock /> */}
 
           <CTABlock />
@@ -92,3 +92,4 @@ export async function getStaticProps() {
     },
   }
 }
+

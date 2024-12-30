@@ -1,61 +1,40 @@
-'use client';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger
-} from '@/shared/ui/accordion';
-import { Button } from '@/shared/ui/button';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage
-} from '@/shared/ui/form';
+'use client'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/shared/ui/accordion'
+import { Button } from '@/shared/ui/button'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/shared/ui/form'
 // import { Heading } from '@/components/ui/heading';
-import { Input } from '@/shared/ui/input';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@/shared/ui/select';
-import { Separator } from '@/shared/ui/separator';
-import { profileSchema, type ProfileFormValues } from '../../model';
-import { cn } from '@/shared/utils';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { AlertTriangleIcon, Trash, Trash2Icon } from 'lucide-react';
-import { useParams, useRouter } from 'next/navigation';
-import { useState } from 'react';
-import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
+import { Input } from '@/shared/ui/input'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/shared/ui/select'
+import { Separator } from '@/shared/ui/separator'
+import { profileSchema, type ProfileFormValues } from '../../model'
+import { cn } from '@/shared/utils'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { AlertTriangleIcon, Trash, Trash2Icon } from 'lucide-react'
+import { useParams, useRouter } from 'next/navigation'
+import { useState } from 'react'
+import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form'
 
 interface ProfileFormType {
-  initialData: any | null;
-  categories: any;
+  initialData: any | null
+  categories: any
 }
 
-export const CreateProfileOne: React.FC<ProfileFormType> = ({
-  initialData,
-  categories
-}) => {
-  const params = useParams();
-  const router = useRouter();
-  const [open, setOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [imgLoading, setImgLoading] = useState(false);
-  const title = initialData ? 'Edit product' : 'Create Your Profile';
+export const CreateProfileOne: React.FC<ProfileFormType> = ({ initialData, categories }) => {
+  const params = useParams()
+  const router = useRouter()
+  const [open, setOpen] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [imgLoading, setImgLoading] = useState(false)
+  const title = initialData ? 'Edit product' : 'Create Your Profile'
   const description = initialData
     ? 'Edit a product.'
-    : 'To create your resume, we first need some basic information about you.';
-  const toastMessage = initialData ? 'Product updated.' : 'Product created.';
-  const action = initialData ? 'Save changes' : 'Create';
-  const [previousStep, setPreviousStep] = useState(0);
-  const [currentStep, setCurrentStep] = useState(0);
-  const [data, setData] = useState({});
-  const delta = currentStep - previousStep;
+    : 'To create your resume, we first need some basic information about you.'
+  const toastMessage = initialData ? 'Product updated.' : 'Product created.'
+  const action = initialData ? 'Save changes' : 'Create'
+  const [previousStep, setPreviousStep] = useState(0)
+  const [currentStep, setCurrentStep] = useState(0)
+  const [data, setData] = useState({})
+  const delta = currentStep - previousStep
 
   const defaultValues = {
     jobs: [
@@ -65,71 +44,71 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
         startdate: '',
         enddate: '',
         jobcountry: '',
-        jobcity: ''
-      }
-    ]
-  };
+        jobcity: '',
+      },
+    ],
+  }
 
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(profileSchema),
     defaultValues,
-    mode: 'onChange'
-  });
+    mode: 'onChange',
+  })
 
   const {
     control,
-    formState: { errors }
-  } = form;
+    formState: { errors },
+  } = form
 
   const { append, remove, fields } = useFieldArray({
     control,
-    name: 'jobs'
-  });
+    name: 'jobs',
+  })
 
   const onSubmit = async (data: ProfileFormValues) => {
     try {
-      setLoading(true);
+      setLoading(true)
       if (initialData) {
         // await axios.post(`/api/products/edit-product/${initialData._id}`, data);
       } else {
         // const res = await axios.post(`/api/products/create-product`, data);
         // console.log("product", res);
       }
-      router.refresh();
-      router.push(`/dashboard/products`);
+      router.refresh()
+      router.push(`/dashboard/products`)
     } catch (error: any) {
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   const onDelete = async () => {
     try {
-      setLoading(true);
+      setLoading(true)
       //   await axios.delete(`/api/${params.storeId}/products/${params.productId}`);
-      router.refresh();
-      router.push(`/${params.storeId}/products`);
+      router.refresh()
+      router.push(`/${params.storeId}/products`)
     } catch (error: any) {
     } finally {
-      setLoading(false);
-      setOpen(false);
+      setLoading(false)
+      setOpen(false)
     }
-  };
+  }
 
-  const processForm: SubmitHandler<ProfileFormValues> = (data) => {
-    console.log('data ==>', data);
-    setData(data);
+  const processForm: SubmitHandler<ProfileFormValues> = data => {
+    console.log('data ==>', data)
+    setData(data)
     // api call and reset
     // form.reset();
-  };
+  }
 
-  type FieldName = keyof ProfileFormValues;
+  type FieldName = keyof ProfileFormValues
 
   const steps = [
     {
       id: 'Step 1',
       name: 'Personal Information',
-      fields: ['firstname', 'lastname', 'email', 'contactno', 'country', 'city']
+      fields: ['firstname', 'lastname', 'email', 'contactno', 'country', 'city'],
     },
     {
       id: 'Step 2',
@@ -142,53 +121,48 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
           `jobs.${index}.startdate`,
           `jobs.${index}.enddate`,
           `jobs.${index}.jobcountry`,
-          `jobs.${index}.jobcity`
+          `jobs.${index}.jobcity`,
           // Add other field names as needed
         ])
-        .flat()
+        .flat(),
     },
-    { id: 'Step 3', name: 'Complete' }
-  ];
+    { id: 'Step 3', name: 'Complete' },
+  ]
 
   const next = async () => {
-    const fields = steps[currentStep].fields;
+    const fields = steps[currentStep].fields
 
     const output = await form.trigger(fields as FieldName[], {
-      shouldFocus: true
-    });
+      shouldFocus: true,
+    })
 
-    if (!output) return;
+    if (!output) return
 
     if (currentStep < steps.length - 1) {
       if (currentStep === steps.length - 2) {
-        await form.handleSubmit(processForm)();
+        await form.handleSubmit(processForm)()
       }
-      setPreviousStep(currentStep);
-      setCurrentStep((step) => step + 1);
+      setPreviousStep(currentStep)
+      setCurrentStep(step => step + 1)
     }
-  };
+  }
 
   const prev = () => {
     if (currentStep > 0) {
-      setPreviousStep(currentStep);
-      setCurrentStep((step) => step - 1);
+      setPreviousStep(currentStep)
+      setCurrentStep(step => step - 1)
     }
-  };
+  }
 
-  const countries = [{ id: 'wow', name: 'india' }];
-  const cities = [{ id: '2', name: 'kerala' }];
+  const countries = [{ id: 'wow', name: 'india' }]
+  const cities = [{ id: '2', name: 'kerala' }]
 
   return (
     <>
       <div className="flex items-center justify-between">
         {/* <Heading title={title} description={description} /> */}
         {initialData && (
-          <Button
-            disabled={loading}
-            variant="destructive"
-            size="sm"
-            onClick={() => setOpen(true)}
-          >
+          <Button disabled={loading} variant="destructive" size="sm" onClick={() => setOpen(true)}>
             <Trash className="h-4 w-4" />
           </Button>
         )}
@@ -200,7 +174,7 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
             <li key={step.name} className="md:flex-1">
               {currentStep > index ? (
                 <div className="group flex w-full flex-col border-l-4 border-sky-600 py-2 pl-4 transition-colors md:border-l-0 md:border-t-4 md:pb-0 md:pl-0 md:pt-4">
-                  <span className="text-sm font-medium text-sky-600 transition-colors ">
+                  <span className="text-sm font-medium text-sky-600 transition-colors">
                     {step.id}
                   </span>
                   <span className="text-sm font-medium">{step.name}</span>
@@ -210,9 +184,7 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
                   className="flex w-full flex-col border-l-4 border-sky-600 py-2 pl-4 md:border-l-0 md:border-t-4 md:pb-0 md:pl-0 md:pt-4"
                   aria-current="step"
                 >
-                  <span className="text-sm font-medium text-sky-600">
-                    {step.id}
-                  </span>
+                  <span className="text-sm font-medium text-sky-600">{step.id}</span>
                   <span className="text-sm font-medium">{step.name}</span>
                 </div>
               ) : (
@@ -229,15 +201,10 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
       </div>
       <Separator />
       <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(processForm)}
-          className="w-full space-y-8"
-        >
+        <form onSubmit={form.handleSubmit(processForm)} className="w-full space-y-8">
           <div
             className={cn(
-              currentStep === 1
-                ? 'w-full md:inline-block'
-                : 'gap-8 md:grid md:grid-cols-3'
+              currentStep === 1 ? 'w-full md:inline-block' : 'gap-8 md:grid md:grid-cols-3'
             )}
           >
             {currentStep === 0 && (
@@ -249,11 +216,7 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
                     <FormItem>
                       <FormLabel>First Name</FormLabel>
                       <FormControl>
-                        <Input
-                          disabled={loading}
-                          placeholder="John"
-                          {...field}
-                        />
+                        <Input disabled={loading} placeholder="John" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -266,11 +229,7 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
                     <FormItem>
                       <FormLabel>Last Name</FormLabel>
                       <FormControl>
-                        <Input
-                          disabled={loading}
-                          placeholder="Doe"
-                          {...field}
-                        />
+                        <Input disabled={loading} placeholder="Doe" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -283,11 +242,7 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input
-                          disabled={loading}
-                          placeholder="johndoe@gmail.com"
-                          {...field}
-                        />
+                        <Input disabled={loading} placeholder="johndoe@gmail.com" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -333,7 +288,7 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
                         </FormControl>
                         <SelectContent>
                           {/* @ts-ignore  */}
-                          {countries.map((country) => (
+                          {countries.map(country => (
                             <SelectItem key={country.id} value={country.id}>
                               {country.name}
                             </SelectItem>
@@ -358,15 +313,12 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
                       >
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue
-                              defaultValue={field.value}
-                              placeholder="Select a city"
-                            />
+                            <SelectValue defaultValue={field.value} placeholder="Select a city" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
                           {/* @ts-ignore  */}
-                          {cities.map((city) => (
+                          {cities.map(city => (
                             <SelectItem key={city.id} value={city.id}>
                               {city.name}
                             </SelectItem>
@@ -382,12 +334,7 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
             {currentStep === 1 && (
               <>
                 {fields?.map((field, index) => (
-                  <Accordion
-                    type="single"
-                    collapsible
-                    defaultValue="item-1"
-                    key={field.id}
-                  >
+                  <Accordion type="single" collapsible defaultValue="item-1" key={field.id}>
                     <AccordionItem value="item-1">
                       <AccordionTrigger
                         className={cn(
@@ -403,11 +350,11 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
                           className="absolute right-8"
                           onClick={() => remove(index)}
                         >
-                          <Trash2Icon className="h-4 w-4 " />
+                          <Trash2Icon className="h-4 w-4" />
                         </Button>
                         {errors?.jobs?.[index] && (
                           <span className="alert absolute right-8">
-                            <AlertTriangleIcon className="h-4 w-4   text-red-700" />
+                            <AlertTriangleIcon className="h-4 w-4 text-red-700" />
                           </span>
                         )}
                       </AccordionTrigger>
@@ -424,11 +371,7 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
                               <FormItem>
                                 <FormLabel>Job title</FormLabel>
                                 <FormControl>
-                                  <Input
-                                    type="text"
-                                    disabled={loading}
-                                    {...field}
-                                  />
+                                  <Input type="text" disabled={loading} {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -441,11 +384,7 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
                               <FormItem>
                                 <FormLabel>Employer</FormLabel>
                                 <FormControl>
-                                  <Input
-                                    type="text"
-                                    disabled={loading}
-                                    {...field}
-                                  />
+                                  <Input type="text" disabled={loading} {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -458,11 +397,7 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
                               <FormItem>
                                 <FormLabel>Start date</FormLabel>
                                 <FormControl>
-                                  <Input
-                                    type="date"
-                                    disabled={loading}
-                                    {...field}
-                                  />
+                                  <Input type="date" disabled={loading} {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -475,11 +410,7 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
                               <FormItem>
                                 <FormLabel>End date</FormLabel>
                                 <FormControl>
-                                  <Input
-                                    type="date"
-                                    disabled={loading}
-                                    {...field}
-                                  />
+                                  <Input type="date" disabled={loading} {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -506,11 +437,8 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
                                     </SelectTrigger>
                                   </FormControl>
                                   <SelectContent>
-                                    {countries.map((country) => (
-                                      <SelectItem
-                                        key={country.id}
-                                        value={country.id}
-                                      >
+                                    {countries.map(country => (
+                                      <SelectItem key={country.id} value={country.id}>
                                         {country.name}
                                       </SelectItem>
                                     ))}
@@ -541,7 +469,7 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
                                     </SelectTrigger>
                                   </FormControl>
                                   <SelectContent>
-                                    {cities.map((city) => (
+                                    {cities.map(city => (
                                       <SelectItem key={city.id} value={city.id}>
                                         {city.name}
                                       </SelectItem>
@@ -570,7 +498,7 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
                         startdate: '',
                         enddate: '',
                         jobcountry: '',
-                        jobcity: ''
+                        jobcity: '',
                       })
                     }
                   >
@@ -582,9 +510,7 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
             {currentStep === 2 && (
               <div>
                 <h1>Completed</h1>
-                <pre className="whitespace-pre-wrap">
-                  {JSON.stringify(data)}
-                </pre>
+                <pre className="whitespace-pre-wrap">{JSON.stringify(data)}</pre>
               </div>
             )}
           </div>
@@ -611,11 +537,7 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
               stroke="currentColor"
               className="h-6 w-6"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 19.5L8.25 12l7.5-7.5"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
             </svg>
           </button>
           <button
@@ -632,15 +554,11 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
               stroke="currentColor"
               className="h-6 w-6"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M8.25 4.5l7.5 7.5-7.5 7.5"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
             </svg>
           </button>
         </div>
       </div>
     </>
-  );
-};
+  )
+}

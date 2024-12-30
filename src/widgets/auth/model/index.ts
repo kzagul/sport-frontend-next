@@ -1,1 +1,1 @@
-export { profileSchema, type ProfileFormValues} from './form-schema'
+export { profileSchema, type ProfileFormValues } from './form-schema'

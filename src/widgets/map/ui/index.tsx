@@ -1,28 +1,25 @@
-"use client"
-import { YMaps, Map, Placemark } from 'react-yandex-maps';
-import { useEffect, useState } from 'react';
-import { useSportsFacilities } from '@/entities/institution';
+'use client'
+import { YMaps, Map, Placemark } from 'react-yandex-maps'
+import { useEffect, useState } from 'react'
+import { useSportsFacilities } from '@/entities/institution'
 
 export const MapWithInstitutions = () => {
-  const [city, setCity] = useState('Москва');
-  const { data: facilities, isLoading, error } = useSportsFacilities(city);
+  const [city, setCity] = useState('Москва')
+  const { data: facilities, isLoading, error } = useSportsFacilities(city)
 
-  const handleCityChange = (e) => {
-    setCity(e.target.value);
-  };
+  const handleCityChange = e => {
+    setCity(e.target.value)
+  }
 
   useEffect(() => {
     console.log('facilities', facilities)
   }, [city, facilities])
 
+  if (isLoading) return <div>Загрузка...</div>
+  if (error) return <div>Ошибка: {error.message}</div>
 
-  if (isLoading) return <div>Загрузка...</div>;
-  if (error) return <div>Ошибка: {error.message}</div>;
-  
   return (
-    <div>
-        просто карта
-    </div>
+    <div>просто карта</div>
     // <YMaps>
     //   <div>
     //     <h1>Спортивные учреждения в {city}</h1>
@@ -51,5 +48,5 @@ export const MapWithInstitutions = () => {
     //     </Map>
     //   </div>
     // </YMaps>
-  );
-};
+  )
+}

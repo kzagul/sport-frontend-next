@@ -1,35 +1,33 @@
-'use client';
-import React, { useState } from 'react';
-import { DashboardNav } from './dashboard-nav';
-import { navItems } from '@/shared/api/data';
-import { cn } from '@/shared/utils';
-import { ChevronLeft } from 'lucide-react';
-import { useSidebar } from '@/widgets/sidebar/model';
-import Link from 'next/link';
+'use client'
+import React, { useState } from 'react'
+import { DashboardNav } from './dashboard-nav'
+import { navItems } from '@/shared/api/data'
+import { cn } from '@/shared/utils'
+import { ChevronLeft } from 'lucide-react'
+import { useSidebar } from '@/widgets/sidebar/model'
+import Link from 'next/link'
 
 type SidebarProps = {
-  className?: string;
-};
+  className?: string
+}
 
 export const Sidebar = ({ className }: SidebarProps) => {
-  const { isMinimized, toggle } = useSidebar();
+  const { isMinimized, toggle } = useSidebar()
 
   const handleToggle = () => {
-    toggle();
-  };
+    toggle()
+  }
 
   return (
     <aside
       className={cn(
-        `relative  hidden h-screen flex-none border-r bg-card transition-[width] duration-500 md:block`,
+        `relative hidden h-screen flex-none border-r bg-card transition-[width] duration-500 md:block`,
         !isMinimized ? 'w-72' : 'w-[72px]',
         className
       )}
     >
       <div className="hidden p-5 pt-10 lg:block">
-        <Link
-          href={'/'}
-        >
+        <Link href={'/'}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -46,7 +44,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
       </div>
       <ChevronLeft
         className={cn(
-          'absolute -right-3 top-10 z-50  cursor-pointer rounded-full border bg-background text-3xl text-foreground',
+          'absolute -right-3 top-10 z-50 cursor-pointer rounded-full border bg-background text-3xl text-foreground',
           isMinimized && 'rotate-180'
         )}
         onClick={handleToggle}
@@ -59,5 +57,5 @@ export const Sidebar = ({ className }: SidebarProps) => {
         </div>
       </div>
     </aside>
-  );
+  )
 }

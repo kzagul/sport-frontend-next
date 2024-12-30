@@ -1,2 +1,2 @@
-export * from './theme-provider'
-export * from './providers-component'
+export { ThemeProvider } from './theme-provider'
+export { AppProviders } from './providers-component'

@@ -1,5 +1,5 @@
-import Image from "next/image"
-import Link from "next/link"
+import Image from 'next/image'
+import Link from 'next/link'
 import {
   ChevronLeft,
   ChevronRight,
@@ -18,9 +18,9 @@ import {
   ShoppingCart,
   Truck,
   Users2,
-} from "lucide-react"
+} from 'lucide-react'
 
-import { Badge } from "@/shared/ui/badge"
+import { Badge } from '@/shared/ui/badge'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -28,8 +28,8 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/shared/ui/breadcrumb"
-import { Button } from "@/shared/ui/button"
+} from '@/shared/ui/breadcrumb'
+import { Button } from '@/shared/ui/button'
 import {
   Card,
   CardContent,
@@ -37,7 +37,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/shared/ui/card"
+} from '@/shared/ui/card'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -46,38 +46,18 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/shared/ui/dropdown-menu"
-import { Input } from "@/shared/ui/input"
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-} from "@/shared/ui/pagination"
-import { Progress } from "@/shared/ui/progress"
-import { Separator } from "@/shared/ui/separator"
-import { Sheet, SheetContent, SheetTrigger } from "@/shared/ui/sheet"
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/shared/ui/table"
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/shared/ui/tabs"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/shared/ui/tooltip"
+} from '@/shared/ui/dropdown-menu'
+import { Input } from '@/shared/ui/input'
+import { Pagination, PaginationContent, PaginationItem } from '@/shared/ui/pagination'
+import { Progress } from '@/shared/ui/progress'
+import { Separator } from '@/shared/ui/separator'
+import { Sheet, SheetContent, SheetTrigger } from '@/shared/ui/sheet'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/shared/ui/table'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/ui/tabs'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/shared/ui/tooltip'
 
 export const description =
-  "An orders dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. The main area has a list of recent orders with a filter and export button. The main area also has a detailed view of a single order with order details, shipping information, billing information, customer information, and payment information."
+  'An orders dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. The main area has a list of recent orders with a filter and export button. The main area also has a detailed view of a single order with order details, shipping information, billing information, customer information, and payment information.'
 
 export function Dashboard() {
   return (
@@ -192,10 +172,7 @@ export function Dashboard() {
                   <Home className="h-5 w-5" />
                   Dashboard
                 </Link>
-                <Link
-                  href="#"
-                  className="flex items-center gap-4 px-2.5 text-foreground"
-                >
+                <Link href="#" className="flex items-center gap-4 px-2.5 text-foreground">
                   <ShoppingCart className="h-5 w-5" />
                   Orders
                 </Link>
@@ -252,11 +229,7 @@ export function Dashboard() {
           </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button
-                variant="outline"
-                size="icon"
-                className="overflow-hidden rounded-full"
-              >
+              <Button variant="outline" size="icon" className="overflow-hidden rounded-full">
                 {/* <Image
                   src="/placeholder-user.jpg"
                   width={36}
@@ -279,14 +252,12 @@ export function Dashboard() {
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8 lg:grid-cols-3 xl:grid-cols-3">
           <div className="grid auto-rows-max items-start gap-4 md:gap-8 lg:col-span-2">
             <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
-              <Card
-                className="sm:col-span-2" x-chunk="dashboard-05-chunk-0"
-              >
+              <Card className="sm:col-span-2" x-chunk="dashboard-05-chunk-0">
                 <CardHeader className="pb-3">
                   <CardTitle>Your Orders</CardTitle>
                   <CardDescription className="max-w-lg text-balance leading-relaxed">
-                    Introducing Our Dynamic Orders Dashboard for Seamless
-                    Management and Insightful Analysis.
+                    Introducing Our Dynamic Orders Dashboard for Seamless Management and Insightful
+                    Analysis.
                   </CardDescription>
                 </CardHeader>
                 <CardFooter>
@@ -299,9 +270,7 @@ export function Dashboard() {
                   <CardTitle className="text-4xl">$1,329</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-xs text-muted-foreground">
-                    +25% from last week
-                  </div>
+                  <div className="text-xs text-muted-foreground">+25% from last week</div>
                 </CardContent>
                 <CardFooter>
                   <Progress value={25} aria-label="25% increase" />
@@ -313,9 +282,7 @@ export function Dashboard() {
                   <CardTitle className="text-4xl">$5,329</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-xs text-muted-foreground">
-                    +10% from last month
-                  </div>
+                  <div className="text-xs text-muted-foreground">+10% from last month</div>
                 </CardContent>
                 <CardFooter>
                   <Progress value={12} aria-label="12% increase" />
@@ -332,11 +299,7 @@ export function Dashboard() {
                 <div className="ml-auto flex items-center gap-2">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="h-7 gap-1 text-sm"
-                      >
+                      <Button variant="outline" size="sm" className="h-7 gap-1 text-sm">
                         <ListFilter className="h-3.5 w-3.5" />
                         <span className="sr-only sm:not-sr-only">Filter</span>
                       </Button>
@@ -344,22 +307,12 @@ export function Dashboard() {
                     <DropdownMenuContent align="end">
                       <DropdownMenuLabel>Filter by</DropdownMenuLabel>
                       <DropdownMenuSeparator />
-                      <DropdownMenuCheckboxItem checked>
-                        Fulfilled
-                      </DropdownMenuCheckboxItem>
-                      <DropdownMenuCheckboxItem>
-                        Declined
-                      </DropdownMenuCheckboxItem>
-                      <DropdownMenuCheckboxItem>
-                        Refunded
-                      </DropdownMenuCheckboxItem>
+                      <DropdownMenuCheckboxItem checked>Fulfilled</DropdownMenuCheckboxItem>
+                      <DropdownMenuCheckboxItem>Declined</DropdownMenuCheckboxItem>
+                      <DropdownMenuCheckboxItem>Refunded</DropdownMenuCheckboxItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="h-7 gap-1 text-sm"
-                  >
+                  <Button size="sm" variant="outline" className="h-7 gap-1 text-sm">
                     <File className="h-3.5 w-3.5" />
                     <span className="sr-only sm:not-sr-only">Export</span>
                   </Button>
@@ -369,24 +322,16 @@ export function Dashboard() {
                 <Card x-chunk="dashboard-05-chunk-3">
                   <CardHeader className="px-7">
                     <CardTitle>Orders</CardTitle>
-                    <CardDescription>
-                      Recent orders from your store.
-                    </CardDescription>
+                    <CardDescription>Recent orders from your store.</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <Table>
                       <TableHeader>
                         <TableRow>
                           <TableHead>Customer</TableHead>
-                          <TableHead className="hidden sm:table-cell">
-                            Type
-                          </TableHead>
-                          <TableHead className="hidden sm:table-cell">
-                            Status
-                          </TableHead>
-                          <TableHead className="hidden md:table-cell">
-                            Date
-                          </TableHead>
+                          <TableHead className="hidden sm:table-cell">Type</TableHead>
+                          <TableHead className="hidden sm:table-cell">Status</TableHead>
+                          <TableHead className="hidden md:table-cell">Date</TableHead>
                           <TableHead className="text-right">Amount</TableHead>
                         </TableRow>
                       </TableHeader>
@@ -398,17 +343,13 @@ export function Dashboard() {
                               liam@example.com
                             </div>
                           </TableCell>
-                          <TableCell className="hidden sm:table-cell">
-                            Sale
-                          </TableCell>
+                          <TableCell className="hidden sm:table-cell">Sale</TableCell>
                           <TableCell className="hidden sm:table-cell">
                             <Badge className="text-xs" variant="secondary">
                               Fulfilled
                             </Badge>
                           </TableCell>
-                          <TableCell className="hidden md:table-cell">
-                            2023-06-23
-                          </TableCell>
+                          <TableCell className="hidden md:table-cell">2023-06-23</TableCell>
                           <TableCell className="text-right">$250.00</TableCell>
                         </TableRow>
                         <TableRow>
@@ -418,17 +359,13 @@ export function Dashboard() {
                               olivia@example.com
                             </div>
                           </TableCell>
-                          <TableCell className="hidden sm:table-cell">
-                            Refund
-                          </TableCell>
+                          <TableCell className="hidden sm:table-cell">Refund</TableCell>
                           <TableCell className="hidden sm:table-cell">
                             <Badge className="text-xs" variant="outline">
                               Declined
                             </Badge>
                           </TableCell>
-                          <TableCell className="hidden md:table-cell">
-                            2023-06-24
-                          </TableCell>
+                          <TableCell className="hidden md:table-cell">2023-06-24</TableCell>
                           <TableCell className="text-right">$150.00</TableCell>
                         </TableRow>
                         <TableRow>
@@ -438,17 +375,13 @@ export function Dashboard() {
                               noah@example.com
                             </div>
                           </TableCell>
-                          <TableCell className="hidden sm:table-cell">
-                            Subscription
-                          </TableCell>
+                          <TableCell className="hidden sm:table-cell">Subscription</TableCell>
                           <TableCell className="hidden sm:table-cell">
                             <Badge className="text-xs" variant="secondary">
                               Fulfilled
                             </Badge>
                           </TableCell>
-                          <TableCell className="hidden md:table-cell">
-                            2023-06-25
-                          </TableCell>
+                          <TableCell className="hidden md:table-cell">2023-06-25</TableCell>
                           <TableCell className="text-right">$350.00</TableCell>
                         </TableRow>
                         <TableRow>
@@ -458,17 +391,13 @@ export function Dashboard() {
                               emma@example.com
                             </div>
                           </TableCell>
-                          <TableCell className="hidden sm:table-cell">
-                            Sale
-                          </TableCell>
+                          <TableCell className="hidden sm:table-cell">Sale</TableCell>
                           <TableCell className="hidden sm:table-cell">
                             <Badge className="text-xs" variant="secondary">
                               Fulfilled
                             </Badge>
                           </TableCell>
-                          <TableCell className="hidden md:table-cell">
-                            2023-06-26
-                          </TableCell>
+                          <TableCell className="hidden md:table-cell">2023-06-26</TableCell>
                           <TableCell className="text-right">$450.00</TableCell>
                         </TableRow>
                         <TableRow>
@@ -478,17 +407,13 @@ export function Dashboard() {
                               liam@example.com
                             </div>
                           </TableCell>
-                          <TableCell className="hidden sm:table-cell">
-                            Sale
-                          </TableCell>
+                          <TableCell className="hidden sm:table-cell">Sale</TableCell>
                           <TableCell className="hidden sm:table-cell">
                             <Badge className="text-xs" variant="secondary">
                               Fulfilled
                             </Badge>
                           </TableCell>
-                          <TableCell className="hidden md:table-cell">
-                            2023-06-23
-                          </TableCell>
+                          <TableCell className="hidden md:table-cell">2023-06-23</TableCell>
                           <TableCell className="text-right">$250.00</TableCell>
                         </TableRow>
                         <TableRow>
@@ -498,17 +423,13 @@ export function Dashboard() {
                               liam@example.com
                             </div>
                           </TableCell>
-                          <TableCell className="hidden sm:table-cell">
-                            Sale
-                          </TableCell>
+                          <TableCell className="hidden sm:table-cell">Sale</TableCell>
                           <TableCell className="hidden sm:table-cell">
                             <Badge className="text-xs" variant="secondary">
                               Fulfilled
                             </Badge>
                           </TableCell>
-                          <TableCell className="hidden md:table-cell">
-                            2023-06-23
-                          </TableCell>
+                          <TableCell className="hidden md:table-cell">2023-06-23</TableCell>
                           <TableCell className="text-right">$250.00</TableCell>
                         </TableRow>
                         <TableRow>
@@ -518,17 +439,13 @@ export function Dashboard() {
                               olivia@example.com
                             </div>
                           </TableCell>
-                          <TableCell className="hidden sm:table-cell">
-                            Refund
-                          </TableCell>
+                          <TableCell className="hidden sm:table-cell">Refund</TableCell>
                           <TableCell className="hidden sm:table-cell">
                             <Badge className="text-xs" variant="outline">
                               Declined
                             </Badge>
                           </TableCell>
-                          <TableCell className="hidden md:table-cell">
-                            2023-06-24
-                          </TableCell>
+                          <TableCell className="hidden md:table-cell">2023-06-24</TableCell>
                           <TableCell className="text-right">$150.00</TableCell>
                         </TableRow>
                         <TableRow>
@@ -538,17 +455,13 @@ export function Dashboard() {
                               emma@example.com
                             </div>
                           </TableCell>
-                          <TableCell className="hidden sm:table-cell">
-                            Sale
-                          </TableCell>
+                          <TableCell className="hidden sm:table-cell">Sale</TableCell>
                           <TableCell className="hidden sm:table-cell">
                             <Badge className="text-xs" variant="secondary">
                               Fulfilled
                             </Badge>
                           </TableCell>
-                          <TableCell className="hidden md:table-cell">
-                            2023-06-26
-                          </TableCell>
+                          <TableCell className="hidden md:table-cell">2023-06-26</TableCell>
                           <TableCell className="text-right">$450.00</TableCell>
                         </TableRow>
                       </TableBody>
@@ -559,9 +472,7 @@ export function Dashboard() {
             </Tabs>
           </div>
           <div>
-            <Card
-              className="overflow-hidden" x-chunk="dashboard-05-chunk-4"
-            >
+            <Card className="overflow-hidden" x-chunk="dashboard-05-chunk-4">
               <CardHeader className="flex flex-row items-start bg-muted/50">
                 <div className="grid gap-0.5">
                   <CardTitle className="group flex items-center gap-2 text-lg">
@@ -649,9 +560,7 @@ export function Dashboard() {
                   </div>
                   <div className="grid auto-rows-max gap-3">
                     <div className="font-semibold">Billing Information</div>
-                    <div className="text-muted-foreground">
-                      Same as shipping address
-                    </div>
+                    <div className="text-muted-foreground">Same as shipping address</div>
                   </div>
                 </div>
                 <Separator className="my-4" />

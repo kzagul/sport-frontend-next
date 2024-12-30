@@ -1,1 +1,1 @@
-export {AboutBlock} from './about-block'
+export { AboutBlock } from './about-block'

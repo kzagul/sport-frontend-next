@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import {
   Area,
@@ -17,7 +17,7 @@ import {
   ReferenceLine,
   XAxis,
   YAxis,
-} from "recharts"
+} from 'recharts'
 
 import {
   Card,
@@ -26,25 +26,19 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/shared/ui/card"
-import {
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "@/shared/ui/chart"
-import { Separator } from "@/shared/ui/separator"
+} from '@/shared/ui/card'
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/shared/ui/chart'
+import { Separator } from '@/shared/ui/separator'
 
 export const Charts = () => {
   return (
     <div className="chart-wrapper mx-auto flex max-w-6xl flex-col flex-wrap items-start justify-center gap-6 p-6 sm:flex-row sm:p-8">
       <div className="grid w-full gap-6 sm:grid-cols-2 lg:max-w-[22rem] lg:grid-cols-1 xl:max-w-[25rem]">
-        <Card
-          className="lg:max-w-md" x-chunk="charts-01-chunk-0"
-        >
+        <Card className="lg:max-w-md" x-chunk="charts-01-chunk-0">
           <CardHeader className="space-y-0 pb-2">
             <CardDescription>Сегодня</CardDescription>
             <CardTitle className="text-4xl tabular-nums">
-              12,584{" "}
+              12,584{' '}
               <span className="font-sans text-sm font-normal tracking-normal text-muted-foreground">
                 шагов
               </span>
@@ -54,8 +48,8 @@ export const Charts = () => {
             <ChartContainer
               config={{
                 steps: {
-                  label: "Steps",
-                  color: "hsl(var(--chart-1))",
+                  label: 'Steps',
+                  color: 'hsl(var(--chart-1))',
                 },
               }}
             >
@@ -67,31 +61,31 @@ export const Charts = () => {
                 }}
                 data={[
                   {
-                    date: "2024-01-01",
+                    date: '2024-01-01',
                     steps: 2000,
                   },
                   {
-                    date: "2024-01-02",
+                    date: '2024-01-02',
                     steps: 2100,
                   },
                   {
-                    date: "2024-01-03",
+                    date: '2024-01-03',
                     steps: 2200,
                   },
                   {
-                    date: "2024-01-04",
+                    date: '2024-01-04',
                     steps: 1300,
                   },
                   {
-                    date: "2024-01-05",
+                    date: '2024-01-05',
                     steps: 1400,
                   },
                   {
-                    date: "2024-01-06",
+                    date: '2024-01-06',
                     steps: 2500,
                   },
                   {
-                    date: "2024-01-07",
+                    date: '2024-01-07',
                     steps: 1600,
                   },
                 ]}
@@ -108,9 +102,9 @@ export const Charts = () => {
                   tickLine={false}
                   axisLine={false}
                   tickMargin={4}
-                  tickFormatter={(value) => {
-                    return new Date(value).toLocaleDateString("en-US", {
-                      weekday: "short",
+                  tickFormatter={value => {
+                    return new Date(value).toLocaleDateString('en-US', {
+                      weekday: 'short',
                     })
                   }}
                 />
@@ -119,11 +113,11 @@ export const Charts = () => {
                   content={
                     <ChartTooltipContent
                       hideIndicator
-                      labelFormatter={(value) => {
-                        return new Date(value).toLocaleDateString("en-US", {
-                          day: "numeric",
-                          month: "long",
-                          year: "numeric",
+                      labelFormatter={value => {
+                        return new Date(value).toLocaleDateString('en-US', {
+                          day: 'numeric',
+                          month: 'long',
+                          year: 'numeric',
                         })
                       }}
                     />
@@ -156,19 +150,16 @@ export const Charts = () => {
           </CardContent>
           <CardFooter className="flex-col items-start gap-1">
             <CardDescription>
-              За последние 7 дней вы прошли{" "}
+              За последние 7 дней вы прошли{' '}
               <span className="font-medium text-foreground">53,305</span> шагов.
             </CardDescription>
             <CardDescription>
-              Тебе нужно еще{" "}
-              <span className="font-medium text-foreground"> 12,584 </span>
+              Тебе нужно еще <span className="font-medium text-foreground"> 12,584 </span>
               шагов для достижения своей цели.
             </CardDescription>
           </CardFooter>
         </Card>
-        <Card
-          className="flex flex-col lg:max-w-md" x-chunk="charts-01-chunk-1"
-        >
+        <Card className="flex flex-col lg:max-w-md" x-chunk="charts-01-chunk-1">
           <CardHeader className="flex flex-row items-center gap-4 space-y-0 pb-2 [&>div]:flex-1">
             <div>
               <CardDescription>Resting HR</CardDescription>
@@ -193,8 +184,8 @@ export const Charts = () => {
             <ChartContainer
               config={{
                 resting: {
-                  label: "Resting",
-                  color: "hsl(var(--chart-1))",
+                  label: 'Resting',
+                  color: 'hsl(var(--chart-1))',
                 },
               }}
               className="w-full"
@@ -208,31 +199,31 @@ export const Charts = () => {
                 }}
                 data={[
                   {
-                    date: "2024-01-01",
+                    date: '2024-01-01',
                     resting: 62,
                   },
                   {
-                    date: "2024-01-02",
+                    date: '2024-01-02',
                     resting: 72,
                   },
                   {
-                    date: "2024-01-03",
+                    date: '2024-01-03',
                     resting: 35,
                   },
                   {
-                    date: "2024-01-04",
+                    date: '2024-01-04',
                     resting: 62,
                   },
                   {
-                    date: "2024-01-05",
+                    date: '2024-01-05',
                     resting: 52,
                   },
                   {
-                    date: "2024-01-06",
+                    date: '2024-01-06',
                     resting: 62,
                   },
                   {
-                    date: "2024-01-07",
+                    date: '2024-01-07',
                     resting: 70,
                   },
                 ]}
@@ -243,15 +234,15 @@ export const Charts = () => {
                   stroke="hsl(var(--muted-foreground))"
                   strokeOpacity={0.5}
                 />
-                <YAxis hide domain={["dataMin - 10", "dataMax + 10"]} />
+                <YAxis hide domain={['dataMin - 10', 'dataMax + 10']} />
                 <XAxis
                   dataKey="date"
                   tickLine={false}
                   axisLine={false}
                   tickMargin={8}
-                  tickFormatter={(value) => {
-                    return new Date(value).toLocaleDateString("en-US", {
-                      weekday: "short",
+                  tickFormatter={value => {
+                    return new Date(value).toLocaleDateString('en-US', {
+                      weekday: 'short',
                     })
                   }}
                 />
@@ -263,8 +254,8 @@ export const Charts = () => {
                   strokeWidth={2}
                   dot={false}
                   activeDot={{
-                    fill: "var(--color-resting)",
-                    stroke: "var(--color-resting)",
+                    fill: 'var(--color-resting)',
+                    stroke: 'var(--color-resting)',
                     r: 4,
                   }}
                 />
@@ -272,11 +263,11 @@ export const Charts = () => {
                   content={
                     <ChartTooltipContent
                       indicator="line"
-                      labelFormatter={(value) => {
-                        return new Date(value).toLocaleDateString("en-US", {
-                          day: "numeric",
-                          month: "long",
-                          year: "numeric",
+                      labelFormatter={value => {
+                        return new Date(value).toLocaleDateString('en-US', {
+                          day: 'numeric',
+                          month: 'long',
+                          year: 'numeric',
                         })
                       }}
                     />
@@ -289,9 +280,7 @@ export const Charts = () => {
         </Card>
       </div>
       <div className="grid w-full flex-1 gap-6 lg:max-w-[20rem]">
-        <Card
-          className="max-w-xs" x-chunk="charts-01-chunk-2"
-        >
+        <Card className="max-w-xs" x-chunk="charts-01-chunk-2">
           <CardHeader>
             <CardTitle>Progress</CardTitle>
             <CardDescription>
@@ -302,15 +291,13 @@ export const Charts = () => {
             <div className="grid auto-rows-min gap-2">
               <div className="flex items-baseline gap-1 text-2xl font-bold tabular-nums leading-none">
                 12,453
-                <span className="text-sm font-normal text-muted-foreground">
-                  steps/day
-                </span>
+                <span className="text-sm font-normal text-muted-foreground">steps/day</span>
               </div>
               <ChartContainer
                 config={{
                   steps: {
-                    label: "Steps",
-                    color: "hsl(var(--chart-1))",
+                    label: 'Steps',
+                    color: 'hsl(var(--chart-1))',
                   },
                 }}
                 className="aspect-auto h-[32px] w-full"
@@ -326,17 +313,12 @@ export const Charts = () => {
                   }}
                   data={[
                     {
-                      date: "2024",
+                      date: '2024',
                       steps: 12435,
                     },
                   ]}
                 >
-                  <Bar
-                    dataKey="steps"
-                    fill="var(--color-steps)"
-                    radius={4}
-                    barSize={32}
-                  >
+                  <Bar dataKey="steps" fill="var(--color-steps)" radius={4} barSize={32}>
                     <LabelList
                       position="insideLeft"
                       dataKey="date"
@@ -353,15 +335,13 @@ export const Charts = () => {
             <div className="grid auto-rows-min gap-2">
               <div className="flex items-baseline gap-1 text-2xl font-bold tabular-nums leading-none">
                 10,103
-                <span className="text-sm font-normal text-muted-foreground">
-                  steps/day
-                </span>
+                <span className="text-sm font-normal text-muted-foreground">steps/day</span>
               </div>
               <ChartContainer
                 config={{
                   steps: {
-                    label: "Steps",
-                    color: "hsl(var(--muted))",
+                    label: 'Steps',
+                    color: 'hsl(var(--muted))',
                   },
                 }}
                 className="aspect-auto h-[32px] w-full"
@@ -377,17 +357,12 @@ export const Charts = () => {
                   }}
                   data={[
                     {
-                      date: "2023",
+                      date: '2023',
                       steps: 10103,
                     },
                   ]}
                 >
-                  <Bar
-                    dataKey="steps"
-                    fill="var(--color-steps)"
-                    radius={4}
-                    barSize={32}
-                  >
+                  <Bar dataKey="steps" fill="var(--color-steps)" radius={4} barSize={32}>
                     <LabelList
                       position="insideLeft"
                       dataKey="date"
@@ -403,28 +378,23 @@ export const Charts = () => {
             </div>
           </CardContent>
         </Card>
-        <Card
-          className="max-w-xs" x-chunk="charts-01-chunk-3"
-        >
+        <Card className="max-w-xs" x-chunk="charts-01-chunk-3">
           <CardHeader className="p-4 pb-0">
             <CardTitle>Walking Distance</CardTitle>
             <CardDescription>
-              Over the last 7 days, your distance walked and run was 12.5 miles
-              per day.
+              Over the last 7 days, your distance walked and run was 12.5 miles per day.
             </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-row items-baseline gap-4 p-4 pt-0">
             <div className="flex items-baseline gap-1 text-3xl font-bold tabular-nums leading-none">
               12.5
-              <span className="text-sm font-normal text-muted-foreground">
-                miles/day
-              </span>
+              <span className="text-sm font-normal text-muted-foreground">miles/day</span>
             </div>
             <ChartContainer
               config={{
                 steps: {
-                  label: "Steps",
-                  color: "hsl(var(--chart-1))",
+                  label: 'Steps',
+                  color: 'hsl(var(--chart-1))',
                 },
               }}
               className="ml-auto w-[72px]"
@@ -439,31 +409,31 @@ export const Charts = () => {
                 }}
                 data={[
                   {
-                    date: "2024-01-01",
+                    date: '2024-01-01',
                     steps: 2000,
                   },
                   {
-                    date: "2024-01-02",
+                    date: '2024-01-02',
                     steps: 2100,
                   },
                   {
-                    date: "2024-01-03",
+                    date: '2024-01-03',
                     steps: 2200,
                   },
                   {
-                    date: "2024-01-04",
+                    date: '2024-01-04',
                     steps: 1300,
                   },
                   {
-                    date: "2024-01-05",
+                    date: '2024-01-05',
                     steps: 1400,
                   },
                   {
-                    date: "2024-01-06",
+                    date: '2024-01-06',
                     steps: 2500,
                   },
                   {
-                    date: "2024-01-07",
+                    date: '2024-01-07',
                     steps: 1600,
                   },
                 ]}
@@ -476,34 +446,26 @@ export const Charts = () => {
                   activeIndex={6}
                   activeBar={<Rectangle fillOpacity={0.8} />}
                 />
-                <XAxis
-                  dataKey="date"
-                  tickLine={false}
-                  axisLine={false}
-                  tickMargin={4}
-                  hide
-                />
+                <XAxis dataKey="date" tickLine={false} axisLine={false} tickMargin={4} hide />
               </BarChart>
             </ChartContainer>
           </CardContent>
         </Card>
-        <Card
-          className="max-w-xs" x-chunk="charts-01-chunk-4"
-        >
+        <Card className="max-w-xs" x-chunk="charts-01-chunk-4">
           <CardContent className="flex gap-4 p-4 pb-2">
             <ChartContainer
               config={{
                 move: {
-                  label: "Move",
-                  color: "hsl(var(--chart-1))",
+                  label: 'Move',
+                  color: 'hsl(var(--chart-1))',
                 },
                 stand: {
-                  label: "Stand",
-                  color: "hsl(var(--chart-2))",
+                  label: 'Stand',
+                  color: 'hsl(var(--chart-2))',
                 },
                 exercise: {
-                  label: "Exercise",
-                  color: "hsl(var(--chart-3))",
+                  label: 'Exercise',
+                  color: 'hsl(var(--chart-3))',
                 },
               }}
               className="h-[140px] w-full"
@@ -517,22 +479,22 @@ export const Charts = () => {
                 }}
                 data={[
                   {
-                    activity: "stand",
+                    activity: 'stand',
                     value: (8 / 12) * 100,
-                    label: "8/12 hr",
-                    fill: "var(--color-stand)",
+                    label: '8/12 hr',
+                    fill: 'var(--color-stand)',
                   },
                   {
-                    activity: "exercise",
+                    activity: 'exercise',
                     value: (46 / 60) * 100,
-                    label: "46/60 min",
-                    fill: "var(--color-exercise)",
+                    label: '46/60 min',
+                    fill: 'var(--color-exercise)',
                   },
                   {
-                    activity: "move",
+                    activity: 'move',
                     value: (245 / 360) * 100,
-                    label: "245/360 kcal",
-                    fill: "var(--color-move)",
+                    label: '245/360 kcal',
+                    fill: 'var(--color-move)',
                   },
                 ]}
                 layout="vertical"
@@ -566,9 +528,7 @@ export const Charts = () => {
                 <div className="text-xs text-muted-foreground">Move</div>
                 <div className="flex items-baseline gap-1 text-2xl font-bold tabular-nums leading-none">
                   562
-                  <span className="text-sm font-normal text-muted-foreground">
-                    kcal
-                  </span>
+                  <span className="text-sm font-normal text-muted-foreground">kcal</span>
                 </div>
               </div>
               <Separator orientation="vertical" className="mx-2 h-10 w-px" />
@@ -576,9 +536,7 @@ export const Charts = () => {
                 <div className="text-xs text-muted-foreground">Exercise</div>
                 <div className="flex items-baseline gap-1 text-2xl font-bold tabular-nums leading-none">
                   73
-                  <span className="text-sm font-normal text-muted-foreground">
-                    min
-                  </span>
+                  <span className="text-sm font-normal text-muted-foreground">min</span>
                 </div>
               </div>
               <Separator orientation="vertical" className="mx-2 h-10 w-px" />
@@ -586,9 +544,7 @@ export const Charts = () => {
                 <div className="text-xs text-muted-foreground">Stand</div>
                 <div className="flex items-baseline gap-1 text-2xl font-bold tabular-nums leading-none">
                   14
-                  <span className="text-sm font-normal text-muted-foreground">
-                    hr
-                  </span>
+                  <span className="text-sm font-normal text-muted-foreground">hr</span>
                 </div>
               </div>
             </div>
@@ -596,52 +552,44 @@ export const Charts = () => {
         </Card>
       </div>
       <div className="grid w-full flex-1 gap-6">
-        <Card
-          className="max-w-xs" x-chunk="charts-01-chunk-5"
-        >
+        <Card className="max-w-xs" x-chunk="charts-01-chunk-5">
           <CardContent className="flex gap-4 p-4">
             <div className="grid items-center gap-2">
               <div className="grid flex-1 auto-rows-min gap-0.5">
                 <div className="text-sm text-muted-foreground">Move</div>
                 <div className="flex items-baseline gap-1 text-xl font-bold tabular-nums leading-none">
                   562/600
-                  <span className="text-sm font-normal text-muted-foreground">
-                    kcal
-                  </span>
+                  <span className="text-sm font-normal text-muted-foreground">kcal</span>
                 </div>
               </div>
               <div className="grid flex-1 auto-rows-min gap-0.5">
                 <div className="text-sm text-muted-foreground">Exercise</div>
                 <div className="flex items-baseline gap-1 text-xl font-bold tabular-nums leading-none">
                   73/120
-                  <span className="text-sm font-normal text-muted-foreground">
-                    min
-                  </span>
+                  <span className="text-sm font-normal text-muted-foreground">min</span>
                 </div>
               </div>
               <div className="grid flex-1 auto-rows-min gap-0.5">
                 <div className="text-sm text-muted-foreground">Stand</div>
                 <div className="flex items-baseline gap-1 text-xl font-bold tabular-nums leading-none">
                   8/12
-                  <span className="text-sm font-normal text-muted-foreground">
-                    hr
-                  </span>
+                  <span className="text-sm font-normal text-muted-foreground">hr</span>
                 </div>
               </div>
             </div>
             <ChartContainer
               config={{
                 move: {
-                  label: "Move",
-                  color: "hsl(var(--chart-1))",
+                  label: 'Move',
+                  color: 'hsl(var(--chart-1))',
                 },
                 exercise: {
-                  label: "Exercise",
-                  color: "hsl(var(--chart-2))",
+                  label: 'Exercise',
+                  color: 'hsl(var(--chart-2))',
                 },
                 stand: {
-                  label: "Stand",
-                  color: "hsl(var(--chart-3))",
+                  label: 'Stand',
+                  color: 'hsl(var(--chart-3))',
                 },
               }}
               className="mx-auto aspect-square w-full max-w-[80%]"
@@ -655,19 +603,19 @@ export const Charts = () => {
                 }}
                 data={[
                   {
-                    activity: "stand",
+                    activity: 'stand',
                     value: (8 / 12) * 100,
-                    fill: "var(--color-stand)",
+                    fill: 'var(--color-stand)',
                   },
                   {
-                    activity: "exercise",
+                    activity: 'exercise',
                     value: (46 / 60) * 100,
-                    fill: "var(--color-exercise)",
+                    fill: 'var(--color-exercise)',
                   },
                   {
-                    activity: "move",
+                    activity: 'move',
                     value: (245 / 360) * 100,
-                    fill: "var(--color-move)",
+                    fill: 'var(--color-move)',
                   },
                 ]}
                 innerRadius="20%"
@@ -675,20 +623,13 @@ export const Charts = () => {
                 startAngle={90}
                 endAngle={450}
               >
-                <PolarAngleAxis
-                  type="number"
-                  domain={[0, 100]}
-                  dataKey="value"
-                  tick={false}
-                />
+                <PolarAngleAxis type="number" domain={[0, 100]} dataKey="value" tick={false} />
                 <RadialBar dataKey="value" background cornerRadius={5} />
               </RadialBarChart>
             </ChartContainer>
           </CardContent>
         </Card>
-        <Card
-          className="max-w-xs" x-chunk="charts-01-chunk-6"
-        >
+        <Card className="max-w-xs" x-chunk="charts-01-chunk-6">
           <CardHeader className="p-4 pb-0">
             <CardTitle>Active Energy</CardTitle>
             <CardDescription>
@@ -698,15 +639,13 @@ export const Charts = () => {
           <CardContent className="flex flex-row items-baseline gap-4 p-4 pt-2">
             <div className="flex items-baseline gap-2 text-3xl font-bold tabular-nums leading-none">
               1,254
-              <span className="text-sm font-normal text-muted-foreground">
-                kcal/day
-              </span>
+              <span className="text-sm font-normal text-muted-foreground">kcal/day</span>
             </div>
             <ChartContainer
               config={{
                 calories: {
-                  label: "Calories",
-                  color: "hsl(var(--chart-1))",
+                  label: 'Calories',
+                  color: 'hsl(var(--chart-1))',
                 },
               }}
               className="ml-auto w-[64px]"
@@ -721,31 +660,31 @@ export const Charts = () => {
                 }}
                 data={[
                   {
-                    date: "2024-01-01",
+                    date: '2024-01-01',
                     calories: 354,
                   },
                   {
-                    date: "2024-01-02",
+                    date: '2024-01-02',
                     calories: 514,
                   },
                   {
-                    date: "2024-01-03",
+                    date: '2024-01-03',
                     calories: 345,
                   },
                   {
-                    date: "2024-01-04",
+                    date: '2024-01-04',
                     calories: 734,
                   },
                   {
-                    date: "2024-01-05",
+                    date: '2024-01-05',
                     calories: 645,
                   },
                   {
-                    date: "2024-01-06",
+                    date: '2024-01-06',
                     calories: 456,
                   },
                   {
-                    date: "2024-01-07",
+                    date: '2024-01-07',
                     calories: 345,
                   },
                 ]}
@@ -758,20 +697,12 @@ export const Charts = () => {
                   activeIndex={6}
                   activeBar={<Rectangle fillOpacity={0.8} />}
                 />
-                <XAxis
-                  dataKey="date"
-                  tickLine={false}
-                  axisLine={false}
-                  tickMargin={4}
-                  hide
-                />
+                <XAxis dataKey="date" tickLine={false} axisLine={false} tickMargin={4} hide />
               </BarChart>
             </ChartContainer>
           </CardContent>
         </Card>
-        <Card
-          className="max-w-xs" x-chunk="charts-01-chunk-7"
-        >
+        <Card className="max-w-xs" x-chunk="charts-01-chunk-7">
           <CardHeader className="space-y-0 pb-0">
             <CardDescription>Time in Bed</CardDescription>
             <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums">
@@ -789,8 +720,8 @@ export const Charts = () => {
             <ChartContainer
               config={{
                 time: {
-                  label: "Time",
-                  color: "hsl(var(--chart-2))",
+                  label: 'Time',
+                  color: 'hsl(var(--chart-2))',
                 },
               }}
             >
@@ -798,31 +729,31 @@ export const Charts = () => {
                 accessibilityLayer
                 data={[
                   {
-                    date: "2024-01-01",
+                    date: '2024-01-01',
                     time: 8.5,
                   },
                   {
-                    date: "2024-01-02",
+                    date: '2024-01-02',
                     time: 7.2,
                   },
                   {
-                    date: "2024-01-03",
+                    date: '2024-01-03',
                     time: 8.1,
                   },
                   {
-                    date: "2024-01-04",
+                    date: '2024-01-04',
                     time: 6.2,
                   },
                   {
-                    date: "2024-01-05",
+                    date: '2024-01-05',
                     time: 5.2,
                   },
                   {
-                    date: "2024-01-06",
+                    date: '2024-01-06',
                     time: 8.1,
                   },
                   {
-                    date: "2024-01-07",
+                    date: '2024-01-07',
                     time: 7.0,
                   },
                 ]}
@@ -834,19 +765,11 @@ export const Charts = () => {
                 }}
               >
                 <XAxis dataKey="date" hide />
-                <YAxis domain={["dataMin - 5", "dataMax + 2"]} hide />
+                <YAxis domain={['dataMin - 5', 'dataMax + 2']} hide />
                 <defs>
                   <linearGradient id="fillTime" x1="0" y1="0" x2="0" y2="1">
-                    <stop
-                      offset="5%"
-                      stopColor="var(--color-time)"
-                      stopOpacity={0.8}
-                    />
-                    <stop
-                      offset="95%"
-                      stopColor="var(--color-time)"
-                      stopOpacity={0.1}
-                    />
+                    <stop offset="5%" stopColor="var(--color-time)" stopOpacity={0.8} />
+                    <stop offset="95%" stopColor="var(--color-time)" stopOpacity={0.1} />
                   </linearGradient>
                 </defs>
                 <Area
@@ -859,14 +782,12 @@ export const Charts = () => {
                 <ChartTooltip
                   cursor={false}
                   content={<ChartTooltipContent hideLabel />}
-                  formatter={(value) => (
+                  formatter={value => (
                     <div className="flex min-w-[120px] items-center text-xs text-muted-foreground">
                       Time in bed
                       <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums text-foreground">
                         {value}
-                        <span className="font-normal text-muted-foreground">
-                          hr
-                        </span>
+                        <span className="font-normal text-muted-foreground">hr</span>
                       </div>
                     </div>
                   )}

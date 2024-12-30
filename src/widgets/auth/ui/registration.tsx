@@ -1,24 +1,16 @@
-import Link from "next/link"
+import Link from 'next/link'
 
-import { Button } from "@/shared/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/shared/ui/card"
-import { Input } from "@/shared/ui/input"
-import { Label } from "@/shared/ui/label"
+import { Button } from '@/shared/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/ui/card'
+import { Input } from '@/shared/ui/input'
+import { Label } from '@/shared/ui/label'
 
 export const RegistrationForm = () => {
   return (
     <Card className="mx-auto max-w-sm">
       <CardHeader>
         <CardTitle className="text-xl">Регистрация</CardTitle>
-        <CardDescription>
-          Введите свои данные для создания учетной записи
-        </CardDescription>
+        <CardDescription>Введите свои данные для создания учетной записи</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="grid gap-4">
@@ -34,12 +26,7 @@ export const RegistrationForm = () => {
           </div>
           <div className="grid gap-2">
             <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="email@example.ru"
-              required
-            />
+            <Input id="email" type="email" placeholder="email@example.ru" required />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="password">Пароль</Label>
@@ -53,7 +40,7 @@ export const RegistrationForm = () => {
           </Button> */}
         </div>
         <div className="mt-4 text-center text-sm">
-          У меня уже есть учетная запись?{" "}
+          У меня уже есть учетная запись?{' '}
           <Link href="#" className="underline">
             Войти
           </Link>

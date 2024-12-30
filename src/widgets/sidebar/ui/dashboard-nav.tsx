@@ -1,45 +1,36 @@
-'use client';
+'use client'
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
-import { Icons } from '@/shared/ui/icon';
-import { cn } from '@/shared/utils';
-import { NavItem } from '@/shared/types';
-import { Dispatch, SetStateAction } from 'react';
-import { useSidebar } from '@/widgets/sidebar/model';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger
-} from '@/shared/ui/tooltip';
+import { Icons } from '@/shared/ui/icon'
+import { cn } from '@/shared/utils'
+import { NavItem } from '@/shared/types'
+import { Dispatch, SetStateAction } from 'react'
+import { useSidebar } from '@/widgets/sidebar/model'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/shared/ui/tooltip'
 
 interface DashboardNavProps {
-  items: NavItem[];
-  setOpen?: Dispatch<SetStateAction<boolean>>;
-  isMobileNav?: boolean;
+  items: NavItem[]
+  setOpen?: Dispatch<SetStateAction<boolean>>
+  isMobileNav?: boolean
 }
 
-export function DashboardNav({
-  items,
-  setOpen,
-  isMobileNav = false
-}: DashboardNavProps) {
-  const path = usePathname();
-  const { isMinimized } = useSidebar();
+export function DashboardNav({ items, setOpen, isMobileNav = false }: DashboardNavProps) {
+  const path = usePathname()
+  const { isMinimized } = useSidebar()
 
   if (!items?.length) {
-    return null;
+    return null
   }
 
-  console.log('isActive', isMobileNav, isMinimized);
+  console.log('isActive', isMobileNav, isMinimized)
 
   return (
     <nav className="grid items-start gap-2">
       <TooltipProvider>
         {items.map((item, index) => {
-          const Icon = Icons[item.icon || 'arrowRight'];
+          const Icon = Icons[item.icon || 'arrowRight']
           return (
             item.href && (
               <Tooltip key={index}>
@@ -52,7 +43,7 @@ export function DashboardNav({
                       item.disabled && 'cursor-not-allowed opacity-80'
                     )}
                     onClick={() => {
-                      if (setOpen) setOpen(false);
+                      if (setOpen) setOpen(false)
                     }}
                   >
                     <Icon className={`ml-3 size-5 flex-none`} />
@@ -74,9 +65,9 @@ export function DashboardNav({
                 </TooltipContent>
               </Tooltip>
             )
-          );
+          )
         })}
       </TooltipProvider>
     </nav>
-  );
+  )
 }

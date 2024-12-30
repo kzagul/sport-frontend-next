@@ -1,6 +1,6 @@
-'use client';
+'use client'
 
-import { Button } from '@/shared/ui/button';
+import { Button } from '@/shared/ui/button'
 import {
   Dialog,
   DialogContent,
@@ -8,26 +8,26 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger
-} from '@/shared/ui/dialog';
-import { Input } from '@/shared/ui/input';
-import { Textarea } from '@/shared/ui/textarea';
+  DialogTrigger,
+} from '@/shared/ui/dialog'
+import { Input } from '@/shared/ui/input'
+import { Textarea } from '@/shared/ui/textarea'
 
-import { useTaskStore } from '../model';
+import { useTaskStore } from '../model'
 
 export default function NewTaskDialog() {
-  const addTask = useTaskStore((state) => state.addTask);
+  const addTask = useTaskStore(state => state.addTask)
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-    const { title, description } = Object.fromEntries(formData);
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    const { title, description } = Object.fromEntries(formData)
 
-    if (typeof title !== 'string' || typeof description !== 'string') return;
-    addTask(title, description);
-  };
+    if (typeof title !== 'string' || typeof description !== 'string') return
+    addTask(title, description)
+  }
 
   return (
     <Dialog>
@@ -39,22 +39,11 @@ export default function NewTaskDialog() {
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Add New Todo</DialogTitle>
-          <DialogDescription>
-            What do you want to get done today?
-          </DialogDescription>
+          <DialogDescription>What do you want to get done today?</DialogDescription>
         </DialogHeader>
-        <form
-          id="todo-form"
-          className="grid gap-4 py-4"
-          onSubmit={handleSubmit}
-        >
+        <form id="todo-form" className="grid gap-4 py-4" onSubmit={handleSubmit}>
           <div className="grid grid-cols-4 items-center gap-4">
-            <Input
-              id="title"
-              name="title"
-              placeholder="Todo title..."
-              className="col-span-4"
-            />
+            <Input id="title" name="title" placeholder="Todo title..." className="col-span-4" />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Textarea
@@ -74,5 +63,5 @@ export default function NewTaskDialog() {
         </DialogFooter>
       </DialogContent>
     </Dialog>
-  );
+  )
 }

@@ -1,9 +1,9 @@
 export const Footer = () => {
   return (
     <footer id="footer">
-      <hr className="w-11/12 mx-auto" />
+      <hr className="mx-auto w-11/12" />
 
-      <section className="container flex justify-between py-20 gap-x-12 gap-y-8">
+      <section className="container flex justify-between gap-x-12 gap-y-8 py-20">
         <div className="col-span-full xl:col-span-2">
           {/* <a
             rel="noreferrer noopener"
@@ -12,16 +12,12 @@ export const Footer = () => {
           >
             СПОРТ Услуги
           </a> */}
-          <a
-              rel="noreferrer noopener"
-              href="/"
-              className="ml-2 font-bold text-xl flex"
-            >
-              {/* <LogoIcon /> */}
-              <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text text-center">
-                СПОРТ/услуги
-              </span>
-            </a>
+          <a rel="noreferrer noopener" href="/" className="ml-2 flex text-xl font-bold">
+            {/* <LogoIcon /> */}
+            <span className="bg-gradient-to-b from-primary/60 to-primary bg-clip-text text-center text-transparent">
+              СПОРТ/услуги
+            </span>
+          </a>
         </div>
 
         {/* <div className="flex flex-col gap-2">
@@ -156,11 +152,11 @@ export const Footer = () => {
           </div>
         </div> */}
 
-          <h3>
-          &copy; 2024 - все права защищены.{" "}
+        <h3>
+          &copy; 2024 - все права защищены.{' '}
           <a
             href="mailto:sportuslugi.tech@ya.ru"
-            className="text-primary transition-all border-primary hover:border-b-2"
+            className="border-primary text-primary transition-all hover:border-b-2"
           >
             sportuslugi.tech@ya.ru
           </a>
@@ -181,5 +177,5 @@ export const Footer = () => {
         </h3>
       </section> */}
     </footer>
-  );
-};
+  )
+}

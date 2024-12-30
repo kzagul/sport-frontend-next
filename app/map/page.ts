@@ -1,1 +1,1 @@
-export { MapWithInstitutions as default } from '@/widgets/map';
+export { MapWithInstitutions as default } from '@/widgets/map'

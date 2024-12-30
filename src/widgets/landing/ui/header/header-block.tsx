@@ -1,133 +1,126 @@
-"use client"
+'use client'
 
-import { useEffect, useState } from "react";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuList,
-} from "@/shared/ui/navigation-menu";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/shared/ui/sheet";
+import { useEffect, useState } from 'react'
+import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from '@/shared/ui/navigation-menu'
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/shared/ui/sheet'
 
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { buttonVariants } from "@/shared/ui/button";
-import { Menu } from "lucide-react";
-import { Badge } from "@/shared/ui/badge";
+import { buttonVariants } from '@/shared/ui/button'
+import { Menu } from 'lucide-react'
+import { Badge } from '@/shared/ui/badge'
 // import { ModeToggle } from "./mode-toggle";
 // import { LogoIcon } from "./Icons";
 
 interface RouteProps {
-  href: string;
-  label: string;
+  href: string
+  label: string
 }
 
 const routeList: RouteProps[] = [
   {
-    href: "#features",
-    label: "Возможности",
+    href: '#features',
+    label: 'Возможности',
   },
   {
-    href: "#about",
-    label: "О проекте",
+    href: '#about',
+    label: 'О проекте',
   },
   {
-    href: "#recommendations",
-    label: "Рекомендации",
+    href: '#recommendations',
+    label: 'Рекомендации',
   },
   {
-    href: "#ui",
-    label: "Внешний вид",
+    href: '#ui',
+    label: 'Внешний вид',
   },
   {
-    href: "#roadmap",
-    label: "Дорожная карта",
+    href: '#roadmap',
+    label: 'Дорожная карта',
   },
   {
-    href: "#faq",
-    label: "Вопрос-ответ",
+    href: '#faq',
+    label: 'Вопрос-ответ',
   },
-];
+]
 
 export const LandingHeaderBlock = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false)
 
-  const [scrollPercentage, setScrollPercentage] = useState(0);
+  const [sectionId, setSectionId] = useState(null)
+  const [scrollPercentage, setScrollPercentage] = useState(0)
 
   const handleScroll = () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const documentHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrollProgress = (scrollTop / documentHeight) * 100;
-    setScrollPercentage(scrollProgress);
-  };
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+    const documentHeight =
+      document.documentElement.scrollHeight - document.documentElement.clientHeight
+    const scrollProgress = (scrollTop / documentHeight) * 100
+    setScrollPercentage(scrollProgress)
+  }
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      const id = window.location.hash.slice(1) // Извлекаем id из URL
+      if (id === sectionId) {
+        window.scrollTo({ top: document.getElementById(id).offsetTop, behavior: 'smooth' })
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [sectionId])
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-  
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   return (
-    <header className="sticky border-b-[1px] top-0 z-40 w-full bg-white dark:border-b-slate-700 dark:bg-background">
+    <header className="sticky top-0 z-40 w-full border-b-[1px] bg-white dark:border-b-slate-700 dark:bg-background">
       <NavigationMenu className="mx-auto">
-        <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between ">
-          <NavigationMenuItem className="font-bold flex">
-            <a
-              rel="noreferrer noopener"
-              href="/"
-              className="ml-2 font-bold text-xl flex"
-            >
+        <NavigationMenuList className="container flex h-14 w-screen justify-between px-4">
+          <NavigationMenuItem className="flex font-bold">
+            <a rel="noreferrer noopener" href="/" className="ml-2 flex text-xl font-bold">
               {/* <LogoIcon /> */}
               {/* <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text text-center">
                 СПОРТ/услуги
               </span> */}
               <img
-                className="w-full rounded-lg h-10"
+                className="h-10 w-full rounded-lg"
                 src="logo/logo-full.png"
                 alt="office content 1"
               />
             </a>
           </NavigationMenuItem>
 
-
           {/* mobile */}
           <span className="flex md:hidden">
             {/* <ModeToggle /> */}
 
-            <Sheet
-              open={isOpen}
-              onOpenChange={setIsOpen}
-            >
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger className="px-2">
-                <Menu
-                  className="flex md:hidden h-5 w-5"
-                  onClick={() => setIsOpen(true)}
-                >
+                <Menu className="flex h-5 w-5 md:hidden" onClick={() => setIsOpen(true)}>
                   <span className="sr-only">Menu Icon</span>
                 </Menu>
               </SheetTrigger>
 
-              <SheetContent side={"left"}>
+              <SheetContent side={'left'}>
                 <SheetHeader>
-                  <SheetTitle className="font-bold text-xl">
-                      <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text text-center">
-                        СПОРТ/услуги
-                      </span>
+                  <SheetTitle className="text-xl font-bold">
+                    <span className="bg-gradient-to-b from-primary/60 to-primary bg-clip-text text-center text-transparent">
+                      СПОРТ/услуги
+                    </span>
                   </SheetTitle>
                 </SheetHeader>
-                <nav className="flex flex-col justify-center items-center gap-2 mt-4">
+                <nav className="mt-4 flex flex-col items-center justify-center gap-2">
                   {routeList.map(({ href, label }: RouteProps) => (
                     <a
                       rel="noreferrer noopener"
                       key={label}
                       href={href}
                       onClick={() => setIsOpen(false)}
-                      className={buttonVariants({ variant: "ghost" })}
+                      className={buttonVariants({ variant: 'ghost' })}
                     >
                       {label}
                     </a>
@@ -138,7 +131,7 @@ export const LandingHeaderBlock = () => {
           </span>
 
           {/* desktop */}
-          <nav className="hidden md:flex gap-2">
+          <nav className="hidden gap-2 md:flex">
             {routeList.map((route: RouteProps, i) => (
               <a
                 rel="noreferrer noopener"
@@ -148,11 +141,14 @@ export const LandingHeaderBlock = () => {
                 //   variant: "ghost",
                 // })}`}
               >
-                <Badge key={i} variant="outline"> {route.label}</Badge>
+                <Badge key={i} variant="outline">
+                  {' '}
+                  {route.label}
+                </Badge>
               </a>
             ))}
           </nav>
-{/* 
+          {/* 
           <div className="hidden md:flex gap-2">
             <a
               rel="noreferrer noopener"
@@ -168,9 +164,9 @@ export const LandingHeaderBlock = () => {
         </NavigationMenuList>
       </NavigationMenu>
       <div
-        style={{ width: `${scrollPercentage}%`, height: '4px'}}
-        className="bg-primary w-full transition-all duration-100"
+        style={{ width: `${scrollPercentage}%`, height: '4px' }}
+        className="w-full bg-primary transition-all duration-100"
       ></div>
     </header>
-  );
-};
+  )
+}

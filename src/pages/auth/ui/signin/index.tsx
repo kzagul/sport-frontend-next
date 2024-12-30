@@ -1,4 +1,4 @@
-import { LoginForm } from "@/widgets/auth/ui";
+import { LoginForm } from "@/widgets/auth";
 
 export const SigninPage = () => {
     return (
