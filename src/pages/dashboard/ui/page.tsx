@@ -16,7 +16,7 @@ import {
 import  { Charts } from '@/widgets/dashboard'
 
 
-export function Page() {
+export function DashboardPage() {
   return (
     <SidebarProvider>
       <AppSidebar />

@@ -8,13 +8,13 @@ export const CTABlock = () => {
     >
       <div className="container lg:grid lg:grid-cols-2 place-items-center">
         <div className="lg:col-start-1">
-          <h2 className="text-3xl md:text-4xl font-bold ">
+          <h2 className="text-3xl md:text-4xl font-bold">
             Все твои
             <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
               {" "}
-              спортивные активности{" "}
+              спортивные активности
             </span>
-            в одном месте
+            <div className="text-3xl md:text-4xl font-bold">в одном месте</div>
           </h2>
           <p className="text-muted-foreground text-xl mt-4 mb-8 lg:mb-0">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,

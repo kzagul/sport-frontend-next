@@ -1,1 +1,1 @@
-export { GizaPage as default } from '@/pages/giza/ui/index'
+export { GizaPage as default } from '@/pages/giza'

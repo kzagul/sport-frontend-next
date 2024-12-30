@@ -1,3 +1,4 @@
+"use client"
 
 import type { Metadata } from "next";
 import { useState } from "react";
@@ -31,7 +32,7 @@ export async function RootLayout ({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const queryClient = new QueryClient();
+  // const queryClient = new QueryClient();
   // const session = auth()
 
   return (

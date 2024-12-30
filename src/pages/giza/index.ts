@@ -1,0 +1,1 @@
+export {GizaPage} from './ui'
