@@ -3,173 +3,31 @@ export const FooterBlock = () => {
     <footer id="footer">
       <hr className="mx-auto w-11/12" />
 
-      <section className="container flex justify-between gap-x-12 gap-y-8 py-20">
+      <section className="container flex flex-col justify-center gap-x-12 gap-y-8 py-20 md:flex-row md:justify-between">
         <div className="col-span-full xl:col-span-2">
-          <a rel="noreferrer noopener" href="/" className="ml-2 flex text-xl font-bold">
+          <a
+            rel="noreferrer noopener"
+            href="/"
+            className="ml-2 flex w-full justify-center text-xl font-bold"
+          >
             <img
-              className="h-10 w-full rounded-lg"
+              className="h-10 w-fit rounded-lg md:w-full"
               src="logo/logo-full.png"
               alt="office content 1"
             />
           </a>
         </div>
 
-        {/* <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">Follow US</h3>
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Github
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Twitter
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Dribbble
-            </a>
-          </div>
-        </div> */}
-
-        {/* <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">Platforms</h3>
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Web
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Mobile
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Desktop
-            </a>
-          </div>
-        </div> */}
-
-        {/* <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">About</h3>
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Features
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Pricing
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              FAQ
-            </a>
-          </div>
-        </div> */}
-
-        {/* <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">Community</h3>
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Youtube
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Discord
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Twitch
-            </a>
-          </div>
-        </div> */}
-
-        <h3>
-          &copy; 2024 - все права защищены.{' '}
+        <h3 className="flex w-full flex-col justify-center gap-x-4 md:w-fit md:flex-row md:justify-between">
+          <span className="mx-auto w-fit md:mx-0">&copy; 2024 - все права защищены. </span>
           <a
             href="mailto:sportuslugi.tech@ya.ru"
-            className="border-primary text-primary transition-all hover:border-b-2"
+            className="mx-auto w-fit border-primary text-primary transition-all hover:border-b-2 md:mx-0"
           >
             sportuslugi.tech@ya.ru
           </a>
         </h3>
       </section>
-
-      {/* <section className="container pb-14 text-center">
-        <h3>
-          &copy; 2024 Landing page made by{" "}
-          <a
-            rel="noreferrer noopener"
-            target="_blank"
-            href="https://www.linkedin.com/in/leopoldo-miranda/"
-            className="text-primary transition-all border-primary hover:border-b-2"
-          >
-            Leo Miranda
-          </a>
-        </h3>
-      </section> */}
     </footer>
   )
 }

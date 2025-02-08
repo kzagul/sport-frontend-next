@@ -1,16 +1,19 @@
 import { Button } from '@/shared/ui'
+import { TextLoop } from '@/shared/ui/text-loop'
 
 export const CTABlock = () => {
   return (
-    <section id="cta" className="my-24 bg-muted/50 py-16 sm:my-32">
+    <section id="cta" className="my-24 bg-muted/50 py-24">
       <div className="container place-items-center lg:grid lg:grid-cols-2">
         <div className="lg:col-start-1">
           <h2 className="text-3xl font-bold md:text-4xl">
             Все твои
             <span className="bg-gradient-to-b from-primary/60 to-primary bg-clip-text text-transparent">
               {' '}
-              спортивные активности
             </span>
+            <TextLoop className="text-gradient-to-b from-primary/60 to-primary text-center font-extrabold leading-none tracking-tight text-primary dark:text-white">
+              {['спортивные активности', 'учреждения', 'фитнес-клубы', 'тренера', 'показатели']}
+            </TextLoop>
             <div className="text-3xl font-bold md:text-4xl">в одном месте</div>
           </h2>
           <p className="mb-8 mt-4 text-xl text-muted-foreground lg:mb-0">

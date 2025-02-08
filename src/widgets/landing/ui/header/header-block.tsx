@@ -2,7 +2,14 @@
 
 import { useEffect, useState } from 'react'
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from '@/shared/ui/navigation-menu'
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/shared/ui/sheet'
+import {
+  Sheet,
+  SheetContent,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/shared/ui/sheet'
 
 import { buttonVariants } from '@/shared/ui/button'
 import { Menu } from 'lucide-react'
@@ -24,10 +31,10 @@ const routeList: RouteProps[] = [
     href: '#about',
     label: 'О проекте',
   },
-  {
-    href: '#recommendations',
-    label: 'Рекомендации',
-  },
+  // {
+  //   href: '#recommendations',
+  //   label: 'Рекомендации',
+  // },
   {
     href: '#ui',
     label: 'Внешний вид',
@@ -43,6 +50,31 @@ const routeList: RouteProps[] = [
 ]
 
 export const LandingHeaderBlock = () => {
+  const [activeSection, setActiveSection] = useState<string>('about')
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    const sections = document.querySelectorAll('section')
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id
+            setActiveSection(id) // Обновляем активную секцию
+            // Обновляем URL без перехода
+            // window.history.replaceState(null, '', `#${id}`)
+          }
+        })
+      },
+      { threshold: 0.5 }
+    )
+
+    sections.forEach(section => observer.observe(section))
+
+    return () => observer.disconnect()
+  }, [])
+
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const [sectionId, setSectionId] = useState(null)
@@ -105,27 +137,39 @@ export const LandingHeaderBlock = () => {
                 </Menu>
               </SheetTrigger>
 
-              <SheetContent side={'left'}>
+              <SheetContent side={'left'} className="h-screen">
                 <SheetHeader>
                   <SheetTitle className="text-xl font-bold">
-                    <span className="bg-gradient-to-b from-primary/60 to-primary bg-clip-text text-center text-transparent">
+                    {/* <span className="bg-gradient-to-b from-primary/60 to-primary bg-clip-text text-center text-transparent">
                       СПОРТ/услуги
-                    </span>
+                    </span> */}
+                    {/* <img
+                      className="h-10 w-full rounded-lg"
+                      src="logo/logo-full.png"
+                      alt="office content 1"
+                    /> */}
                   </SheetTitle>
                 </SheetHeader>
-                <nav className="mt-4 flex flex-col items-center justify-center gap-2">
+                <nav className="mt-4 flex flex-col items-center justify-center gap-8">
                   {routeList.map(({ href, label }: RouteProps) => (
                     <a
                       rel="noreferrer noopener"
                       key={label}
                       href={href}
                       onClick={() => setIsOpen(false)}
-                      className={buttonVariants({ variant: 'ghost' })}
+                      className={(buttonVariants({ variant: 'ghost' }), 'text-3xl')}
                     >
                       {label}
                     </a>
                   ))}
                 </nav>
+                <SheetFooter>
+                  <img
+                    className="h-10 w-full rounded-lg"
+                    src="logo/logo-full.png"
+                    alt="office content 1"
+                  />
+                </SheetFooter>
               </SheetContent>
             </Sheet>
           </span>
@@ -141,7 +185,15 @@ export const LandingHeaderBlock = () => {
                 //   variant: "ghost",
                 // })}`}
               >
-                <Badge key={i} variant="outline">
+                <Badge
+                  key={i}
+                  variant="outline"
+                  className={
+                    route.href === `#${activeSection}`
+                      ? 'border-primary hover:border-blue-300'
+                      : 'hover:border-blue-300'
+                  }
+                >
                   {' '}
                   {route.label}
                 </Badge>

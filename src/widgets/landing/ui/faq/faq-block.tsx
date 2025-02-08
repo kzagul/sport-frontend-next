@@ -22,38 +22,70 @@ interface FAQProps {
 
 const FAQList: FAQProps[] = [
   {
-    question: 'Is this template free?',
-    answer: 'Yes. It is a free ChadcnUI template.',
+    question: 'Что такое платформа "Спортуслуги"?',
+    answer:
+      '"Спортуслуги" — это сервис, который помогает найти спортивные услуги, учреждения и мероприятия, а также подобрать персонализированные рекомендации с использованием искусственного интеллекта (ИИ).',
     value: 'item-1',
   },
   {
-    question: 'Lorem ipsum dolor sit amet consectetur adipisicing elit?',
+    question: 'Как работает подбор услуг с помощью ИИ?',
     answer:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint labore quidem quam? Consectetur sapiente iste rerum reiciendis animi nihil nostrum sit quo, modi quod.',
+      'Наш ИИ анализирует ваши предпочтения, цели и данные о выбранных услугах, чтобы предложить лучшие варианты. Чем больше вы используете платформу, тем точнее становятся рекомендации.',
     value: 'item-2',
   },
   {
-    question: 'Lorem ipsum dolor sit amet  Consectetur natus dolores minus quibusdam?',
+    question: 'Какие виды спорта и услуг представлены?',
     answer:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore qui nostrum reiciendis veritatis necessitatibus maxime quis ipsa vitae cumque quo?',
+      'На платформе вы найдете услуги и учреждения, связанные с фитнесом, йогой, плаванием, единоборствами, игровыми видами спорта, детскими спортивными секциями и многим другим.',
     value: 'item-3',
   },
   {
-    question: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit?',
-    answer: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
+    question: 'Могу ли я фильтровать результаты по стоимости, расположению и рейтингу?',
+    answer:
+      'Да, у нас есть удобные фильтры, которые позволяют искать услуги по цене, местоположению, рейтингу, уровню подготовки и другим параметрам.',
     value: 'item-4',
   },
   {
-    question: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur natus?',
+    question: 'Как зарегистрироваться и начать пользоваться платформой?',
     answer:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint labore quidem quam? Consectetur sapiente iste rerum reiciendis animi nihil nostrum sit quo, modi quod.',
+      'Вы можете зарегистрироваться через электронную почту, номер телефона или социальные сети. После регистрации вы получите доступ к функциям платформы, включая рекомендации и личный кабинет.',
     value: 'item-5',
+  },
+  {
+    question: 'Нужно ли платить за использование платформы?',
+    answer:
+      'Базовый доступ к платформе бесплатный. Некоторые премиум-функции, такие как персональные тренировки с экспертами или расширенные рекомендации, могут быть платными.',
+    value: 'item-6',
+  },
+  {
+    question: 'Как мне выбрать подходящее учреждение или услугу?',
+    answer:
+      'Мы предоставляем подробную информацию о каждом учреждении, включая отзывы других пользователей, фотографии, расписание и контактные данные. Вы также можете посмотреть на карте, где находится учреждение.',
+    value: 'item-7',
+  },
+  {
+    question: 'Как связаться с вами?',
+    answer:
+      'Если у вас возникли вопросы или проблемы, вы можете связаться с нашей службой поддержки через форму обратной связи, по электронной почте или через чат на платформе.',
+    value: 'item-8',
+  },
+  {
+    question: 'Есть ли мобильное приложение?',
+    answer:
+      'Да, мы предлагаем удобное мобильное приложение для iOS и Android, чтобы вы могли искать спортивные услуги и получать рекомендации в любом месте и в любое время.',
+    value: 'item-9',
+  },
+  {
+    question: 'Как платформа помогает мне достигать моих спортивных целей?',
+    answer:
+      '"Спортуслуги" не только подбирает услуги и учреждения, но и предоставляет аналитику и советы для достижения ваших целей. Вы можете отслеживать свой прогресс через личный кабинет, анализировать статистику и получать рекомендации по улучшению результатов.',
+    value: 'item-10',
   },
 ]
 
 export const FAQBlock = () => {
   return (
-    <section id="faq" className="container py-24 sm:py-32">
+    <section id="faq" className="container py-24">
       <h2 className="mb-4 text-3xl font-bold md:text-4xl">
         Вопрос -{' '}
         <span className="bg-gradient-to-b from-primary/60 to-primary bg-clip-text text-transparent">
